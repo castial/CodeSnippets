@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - LifeCycle
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initUI];
+        [self initLayout];
+    }
+    return self;
+}
+
+- (void)initUI {
+}
+
+- (void)initLayout {
+}
+
+#pragma mark - Public Methods
++ (NSString *)cellID {
+    return NSStringFromClass([self class]);
+}
+
++ (CGFloat)cellHeight {
+    return 44;
+}
+
+#pragma mark - Setter and Getter</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>18311AFF-E960-4715-BF41-9F2A3E4B36DA</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>TableViewCell.m</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
