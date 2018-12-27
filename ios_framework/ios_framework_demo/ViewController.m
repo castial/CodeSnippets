@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     
-    [HYAIManager hello];
+    [HYAIManager start];
 }
 
 

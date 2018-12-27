@@ -6,17 +6,23 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		DC27D07921D3640000679383 /* script */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DC27D07C21D3640000679383 /* Build configuration list for PBXAggregateTarget "script" */;
+			buildPhases = (
+				DC27D07F21D3648D00679383 /* ShellScript */,
+			);
+			dependencies = (
+				DC27D07E21D3640800679383 /* PBXTargetDependency */,
+			);
+			name = script;
+			productName = script;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		DC5FED9B21D0BC3B001D681C /* ios_framework.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5FED9921D0BC3B001D681C /* ios_framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC5FEDA521D0BD85001D681C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDA421D0BD85001D681C /* libz.tbd */; };
-		DC5FEDA721D0BD8C001D681C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDA621D0BD8C001D681C /* AVFoundation.framework */; };
-		DC5FEDA921D0BD92001D681C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDA821D0BD92001D681C /* SystemConfiguration.framework */; };
-		DC5FEDAB21D0BDA5001D681C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDAA21D0BDA5001D681C /* Foundation.framework */; };
-		DC5FEDAD21D0BDAC001D681C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDAC21D0BDAC001D681C /* CoreGraphics.framework */; };
-		DC5FEDAF21D0BDB1001D681C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDAE21D0BDB1001D681C /* QuartzCore.framework */; };
-		DC5FEDB121D0BDBA001D681C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDB021D0BDBA001D681C /* AudioToolbox.framework */; };
-		DC5FEDB321D0BDC3001D681C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDB221D0BDC3001D681C /* libc++.tbd */; };
-		DC5FEDB521D0BDCC001D681C /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDB421D0BDCC001D681C /* libstdc++.tbd */; };
 		DC5FEDB921D0BED9001D681C /* HYAIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5FEDB721D0BED9001D681C /* HYAIManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5FEDBA21D0BED9001D681C /* HYAIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5FEDB821D0BED9001D681C /* HYAIManager.m */; };
 		DC5FEDC321D0C09E001D681C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5FEDC221D0C09E001D681C /* AppDelegate.m */; };
@@ -37,6 +43,16 @@
 		DC5FEDE221D0C16E001D681C /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDB421D0BDCC001D681C /* libstdc++.tbd */; };
 		DC5FEDE721D0C9BD001D681C /* AIPIFlyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5FEDD821D0C0FD001D681C /* AIPIFlyMSC.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC27D07D21D3640800679383 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC5FED8D21D0BC3A001D681C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC5FED9521D0BC3B001D681C;
+			remoteInfo = ios_framework;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DC5FED9621D0BC3B001D681C /* ios_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ios_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,15 +88,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC5FEDA521D0BD85001D681C /* libz.tbd in Frameworks */,
-				DC5FEDB521D0BDCC001D681C /* libstdc++.tbd in Frameworks */,
-				DC5FEDB321D0BDC3001D681C /* libc++.tbd in Frameworks */,
-				DC5FEDB121D0BDBA001D681C /* AudioToolbox.framework in Frameworks */,
-				DC5FEDAF21D0BDB1001D681C /* QuartzCore.framework in Frameworks */,
-				DC5FEDAD21D0BDAC001D681C /* CoreGraphics.framework in Frameworks */,
-				DC5FEDAB21D0BDA5001D681C /* Foundation.framework in Frameworks */,
-				DC5FEDA921D0BD92001D681C /* SystemConfiguration.framework in Frameworks */,
-				DC5FEDA721D0BD8C001D681C /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +259,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Iafine;
 				TargetAttributes = {
+					DC27D07921D3640000679383 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					DC5FED9521D0BC3B001D681C = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -275,6 +285,7 @@
 			targets = (
 				DC5FED9521D0BC3B001D681C /* ios_framework */,
 				DC5FEDBE21D0C09E001D681C /* ios_framework_demo */,
+				DC27D07921D3640000679383 /* script */,
 			);
 		};
 /* End PBXProject section */
@@ -299,6 +310,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DC27D07F21D3648D00679383 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "######################\n# Options\n######################\nREVEAL_ARCHIVE_IN_FINDER=true\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\nDESKTOP_FOLDER=\"${HOME}/Desktop/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\n\n######################\n# Build Frameworks\n######################\n\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator BITCODE_GENERATION_MODE=bitcode OTHER_CFLAGS=\"-fembed-bitcode\" -target ${PROJECT_NAME} -configuration ${CONFIGURATION} -arch x86_64 -arch i386 clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator | echo\n\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos BITCODE_GENERATION_MODE=bitcode OTHER_CFLAGS=\"-fembed-bitcode\" -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos | echo\nxcodebuild BITCODE_GENERATION_MODE=bitcode OTHER_CFLAGS=\"-fembed-bitcode\" -target ${PROJECT_NAME} ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" | echo\n\nxcodebuild BITCODE_GENERATION_MODE=bitcode OTHER_CFLAGS=\"-fembed-bitcode\" -target ${PROJECT_NAME} ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphonesimulator BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" | echo\n\n######################\n# Create directory for universal\n######################\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir \"${FRAMEWORK}\"\n######################\n# Copy files Framework\n######################\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n######################\n# Make fat universal binary\n######################\nlipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo\n######################\n# On Release, copy the result to desktop folde\n######################\nif [ \"${CONFIGURATION}\" == \"Release\" ]; then\n[[ -d \"${DESKTOP_FOLDER}\" ]] && rm -rf \"${DESKTOP_FOLDER}\"\nmkdir \"${DESKTOP_FOLDER}\"\ncp -r \"${FRAMEWORK}\" \"${DESKTOP_FOLDER}\"\nfi\n######################\n# If needed, open the Framework folder\n######################\nif [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\nif [ \"${CONFIGURATION}\" == \"Release\" ]; then\nopen \"${HOME}/Desktop/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\nelse\nopen \"${UNIVERSAL_LIBRARY_DIR}/\"\nfi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DC5FED9221D0BC3B001D681C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -320,6 +351,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DC27D07E21D3640800679383 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC5FED9521D0BC3B001D681C /* ios_framework */;
+			targetProxy = DC27D07D21D3640800679383 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DC5FEDC721D0C09E001D681C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -340,6 +379,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DC27D07A21D3640000679383 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2DXV7QR3FC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DC27D07B21D3640000679383 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2DXV7QR3FC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		DC5FED9C21D0BC3B001D681C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -569,6 +626,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DC27D07C21D3640000679383 /* Build configuration list for PBXAggregateTarget "script" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC27D07A21D3640000679383 /* Debug */,
+				DC27D07B21D3640000679383 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DC5FED9021D0BC3A001D681C /* Build configuration list for PBXProject "ios_framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
