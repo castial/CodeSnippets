@@ -12,6 +12,11 @@ requests = "*"
 beautifulsoup4 = "*"
 pymysql = "*"
 sqlalchemy = "*"
+flask = "*"
+flask-mail = "*"
+flask-sqlalchemy = "*"
+flask-script = "*"
+flask-httpauth = "*"
 
 [requires]
 python_version = "3.7"
