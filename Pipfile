@@ -17,6 +17,8 @@ flask-mail = "*"
 flask-sqlalchemy = "*"
 flask-script = "*"
 flask-httpauth = "*"
+flask-session = "*"
+redis = "*"
 
 [requires]
 python_version = "3.7"
