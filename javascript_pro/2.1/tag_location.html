@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <!-- 1. script放在这里的目的是为了统一地方，但是不足之处是需要加载完所有js文件后，页面才开始呈现 -->
+    <script src="main.js"></script>
+
+    <!-- 3. 也可以用defer来执行延迟脚本执行，但是只能用于外部脚本 -->
+    <script src="main.js" defer="defer"></script>
+</head>
+<body>
+    <p>This is a page.</p>
+    <!-- 2. script脚本也可以放在这里，目的是缩短页面的打开时间 -->
+    <script src="main.js"></script>
+</body>
+</html>
