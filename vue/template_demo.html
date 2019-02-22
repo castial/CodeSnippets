@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Template Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app-1">
+        <p>
+            {{ message }}
+        </p>
+    </div>
+    <div id="app-2">
+        <p v-once>
+            {{ message }}
+        </p>
+    </div>
+    <div id="app-3">
+        <p>
+            {{ message }}
+        </p>
+        <p v-html="message">
+        </p>
+    </div>
+    <div id="app-4">
+        <p>
+            {{ message }}
+        </p>
+        <p>
+            {{ reversedMessage}}
+        </p>
+    </div>
+    <div id="app-5">
+        <p>
+           property: {{ now }}
+        </p>
+        <p>
+            function: {{ time() }}
+        </p>
+    </div>
+
+    <script>
+        var vm1 = new Vue({
+            el: '#app-1',
+            data: {
+                message: 'Hello'
+            }
+        })
+        var vm2 = new Vue({
+            el: '#app-2',
+            data: {
+                message: 'Hello Once'
+            }
+        })
+        var vm3 = new Vue({
+            el: '#app-3',
+            data: {
+                message: '<span style="color:red">这个是红色文字</span>'
+            }
+        })
+        var vm4 = new Vue({
+            el: '#app-4',
+            data: {
+                message: 'Hello Message'
+            },
+            computed: {
+                reversedMessage: function() {
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+        var vm5 = new Vue({
+            el: 'app-5',
+            computed: {
+                now: Date.now()
+            }
+        })
+    </script>
+</body>
+</html>
