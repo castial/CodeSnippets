@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/harlan/.local/share/virtualenvs/code_snippets-zlAEMhJN/bin/python"
+    "python.pythonPath": "/Users/harlan/.local/share/virtualenvs/code_snippets-zlAEMhJN/bin/python",
+    "git.ignoreLimitWarning": true
 }
