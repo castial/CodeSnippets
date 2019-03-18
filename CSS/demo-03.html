@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSS Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #inline {
+            display: inline;
+        }
+        #none {
+            display: none;
+        }
+        #block {
+            display: block;
+        }
+        p.pos_left {
+            position: relative;
+            left: -20px;
+        }
+        p.pos_right {
+            position: relative;
+            left: 20px;
+        }
+        p.pos_abs {
+            position:absolute;
+            left: 100px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <p id="inline">1. 这是一个inline文本</p>
+    <p id="inline">2. 这是一个inline文本</p>
+    <p id="none">3. 这是一个none文本</p>
+    <p id="block">4. 这是一个block文本</p>
+    <p id="block">5. 这是一个block文本</p>
+    <div>
+        <p>这个是一个正常位置的标题</p>
+        <p class="pos_left">这个是一个相对于正常位置向左位移的标题</p>
+        <p class="pos_right">这个是一个相对于正常位置向右位移的标题</p>
+        <p class="pos_abs">这是一个绝对定为的标题</p>
+    </div>
+</body>
+</html>
