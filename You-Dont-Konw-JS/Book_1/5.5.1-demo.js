@@ -23,7 +23,7 @@ CustomModules.define('bar', [], function() {
     function hello(who) {
         return 'Hello ' + who
     }
-
+ 
     return {
         hello: hello
     }
