@@ -4,13 +4,13 @@
       <header class="item_title">
           <span>{{ itemDetail.question }}</span>
       </header>
-      <form>
+      <div>
         <div class="item_radio" :key="item.id" v-for="item in itemDetail.answerList">
           <input name="answer" type="radio" :value="item.id" v-model="picked">
           {{ item.answer }}
         </div>
         <button type="button" @click="handleClicked">下一题</button>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -23,19 +23,19 @@ export default {
         question: '请问世界上最大的湖泊是哪个?',
         answerList: [
           {
-            answer: '答案1',
+            answer: '贝加尔湖',
             id: 1
           },
           {
-            answer: '答案1',
+            answer: '青海湖',
             id: 2
           },
           {
-            answer: '答案1',
+            answer: '密西根湖',
             id: 3
           },
           {
-            answer: '答案1',
+            answer: '洞庭湖',
             id: 4
           }
         ]
