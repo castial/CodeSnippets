@@ -10,9 +10,7 @@ Vue.use(Vuex)
  */
 const state = {
   itemNum: 1, // 第几题
-  expendTime: 0, // 答题花费时间
   answerIDList: [], // 答案集合
-  timer: '', // 定时器
   questionList: [
     {
       question_id: 1,

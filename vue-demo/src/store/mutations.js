@@ -11,14 +11,8 @@ export default {
   [type.RECORD_ITEM_ANSWER] (state, id) {
     state.answerIDList.push(id)
   },
-  [type.RECORD_ANSWER_TIME] (state) {
-    state.timer = setInterval(() => {
-      state.expendTime++
-    }, 1000)
-  },
   [type.INIT_QUESTION] (state) {
     state.itemNum = 1
     state.answerIDList = []
-    state.expendTime = 0
   }
 }

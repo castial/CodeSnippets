@@ -10,10 +10,9 @@
           class="item_radio"
           v-for="answer in questionList[itemNum - 1].question_answer_list"
         >
-          <input :value="answer.answer_id" name="answer" type="radio" v-model="pickAnswer">
-          {{ answer.answer_name }}
+        <el-radio v-model="pickAnswer" :label="answer.answer_id">{{ answer.answer_name }}</el-radio>
         </div>
-        <button @click="handleClicked" type="button">{{ buttonName }}</button>
+        <el-button @click="handleClicked" type="primary">{{ buttonName }}</el-button>
       </div>
     </div>
   </div>
@@ -33,7 +32,7 @@ export default {
       'timer',
       'questionList'
     ]),
-    'buttonName': function () {
+    buttonName: function () {
       if (this.itemNum < this.questionList.length) {
         return '下一题'
       }
@@ -52,7 +51,12 @@ export default {
       }
     },
     jumpScorePage () {
-      this.$router.push('/score')
+      if (this.pickAnswer) {
+        this.submitAnswer(this.pickAnswer)
+        this.$router.push('/score')
+      } else {
+        alert('请选择一个心目中的答案')
+      }
     },
     jumpNextQuestionPage () {
       if (this.pickAnswer) {

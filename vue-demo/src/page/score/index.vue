@@ -1,12 +1,9 @@
 <template>
     <div class="score_container">
         <header>
-            <span>{{ score }}分</span>
+            <span>分数：{{ score }}</span>
         </header>
-        <div class="result_tip">
-            学习使人进步！
-        </div>
-        <button @click="handleClicked" type="button">重新开始</button>
+        <el-button @click="handleClicked" type="primary">重新开始</el-button>
     </div>
 </template>
 <script>
