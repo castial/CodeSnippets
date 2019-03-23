@@ -11,13 +11,21 @@
     </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data () {
     return {
       title: '点击下方，开始做题吧!'
     }
   },
+  created () {
+    this.initData()
+  },
   methods: {
+    ...mapActions([
+      'initData'
+    ]),
     pushItem () {
       this.$router.push('/item')
     }

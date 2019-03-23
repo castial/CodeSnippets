@@ -117,6 +117,32 @@ const state = {
           is_standard_answer: false
         }
       ]
+    },
+    {
+      question_id: 5,
+      question_name: '世界使用人数最多的语言是？',
+      question_answer_list: [
+        {
+          answer_id: 17,
+          answer_name: '英语',
+          is_standard_answer: false
+        },
+        {
+          answer_id: 18,
+          answer_name: '汉语',
+          is_standard_answer: true
+        },
+        {
+          answer_id: 19,
+          answer_name: '拉丁语',
+          is_standard_answer: false
+        },
+        {
+          answer_id: 20,
+          answer_name: '阿拉伯语',
+          is_standard_answer: false
+        }
+      ]
     }
   ]
 }

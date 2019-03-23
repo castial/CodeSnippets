@@ -8,7 +8,7 @@ export default {
     // 记录下当前选择的问题答案
     commit(type.RECORD_ITEM_ANSWER, id)
     // 如果不是最后一个，获取下一题目
-    if (state.itemNum < state.itemDetail.length) {
+    if (state.itemNum < state.questionList.length) {
       commit(type.NEXT_QUESTION, 1)
     }
   },

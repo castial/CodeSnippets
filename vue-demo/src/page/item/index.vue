@@ -2,49 +2,64 @@
   <div class="item_container">
     <div class="item_list">
       <header class="item_title">
-          <span>{{ itemDetail.question }}</span>
+        <span>{{ questionList[itemNum - 1].question_name }}</span>
       </header>
       <div>
-        <div class="item_radio" :key="item.id" v-for="item in itemDetail.answerList">
-          <input name="answer" type="radio" :value="item.id" v-model="picked">
-          {{ item.answer }}
+        <div
+          :key="answer.answer_id"
+          class="item_radio"
+          v-for="answer in questionList[itemNum - 1].question_answer_list"
+        >
+          <input :value="answer.answer_id" name="answer" type="radio" v-model="pickAnswer">
+          {{ answer.answer_name }}
         </div>
-        <button type="button" @click="handleClicked">下一题</button>
+        <button @click="handleClicked" type="button">{{ buttonName }}</button>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
   data () {
     return {
-      picked: '',
-      itemDetail: {
-        question: '请问世界上最大的湖泊是哪个?',
-        answerList: [
-          {
-            answer: '贝加尔湖',
-            id: 1
-          },
-          {
-            answer: '青海湖',
-            id: 2
-          },
-          {
-            answer: '密西根湖',
-            id: 3
-          },
-          {
-            answer: '洞庭湖',
-            id: 4
-          }
-        ]
+      pickAnswer: ''
+    }
+  },
+  computed: {
+    ...mapState([
+      'itemNum',
+      'timer',
+      'questionList'
+    ]),
+    'buttonName': function () {
+      if (this.itemNum < this.questionList.length) {
+        return '下一题'
       }
+      return '查看结果'
     }
   },
   methods: {
+    ...mapActions([
+      'submitAnswer'
+    ]),
     handleClicked () {
-      alert('选中的是' + this.picked)
+      if (this.itemNum < this.questionList.length) {
+        this.jumpNextQuestionPage()
+      } else {
+        this.jumpScorePage()
+      }
+    },
+    jumpScorePage () {
+      this.$router.push('/score')
+    },
+    jumpNextQuestionPage () {
+      if (this.pickAnswer) {
+        this.submitAnswer(this.pickAnswer)
+      } else {
+        alert('请选择一个心目中的答案')
+      }
     }
   }
 }
