@@ -3,27 +3,25 @@ const path = require('path')
 const http = require('http')
 const open = require('opn')
 const url = require('url')
+const util = require('util')
+
+const mkdir = util.promisify(fs.mkdir)
+const writeFile = util.promisify(fs.writeFile)
+const readFile = util.promisify(fs.readFile)
 
 /**
  * 创建Public文件夹
  */
 const folderPath = path.join(__dirname, '../public')
 
-function createPublicFolder(callback) {
-    fs.mkdir(folderPath, (error) => {
-        if (error) {
-            console.error(error)
-        } else {
-            console.log('创建public文件夹成功')
-            callback(folderPath)
-        }
-    })
+async function createPublicFolder() {
+    await mkdir(folderPath)
 }
 
 /**
  * 创建index.html文件，用于展示内容
  */
-function createHTMLFile(callback) {
+async function createHTMLFile() {
     const content = `<!DOCTYPE html>
      <html>
      <head>
@@ -41,54 +39,36 @@ function createHTMLFile(callback) {
      </body>
      </html>`
     const htmlPath = path.join(folderPath, 'index.html')
-    fs.writeFile(htmlPath, content, 'utf8', (error) => {
-        if (error) {
-            console.error(error)
-        } else {
-            console.log('创建index.html文件成功')
-            callback(folderPath)
-        }
-    })
+    
+    await writeFile(htmlPath, content, 'utf8')
 }
 
 /**
  * 创建index.css文件，用于优化UI
  */
-function createCSSFile(callback) {
+async function createCSSFile() {
     const cssFolderPath = path.join(folderPath, 'css')
     const cssPath = path.join(cssFolderPath, 'index.css')
 
     const content = `body {background-color: red;}`
 
-    fs.mkdir(cssFolderPath, (error) => {
-        if (error) {
-            console.error(error)
-        } else {
-            fs.writeFile(cssPath, content, 'utf8', (error) => {
-                if (error) {
-                    console.error(error)
-                } else {
-                    console.log('创建index.css文件成功')
-                    callback(folderPath)
-                }
-            })
-        }
-    })
+    await mkdir(cssFolderPath)
+    await writeFile(cssPath, content, 'utf8')
 }
 
 /**
  * 开启本地服务，打开静态文件
  */
-function openIndexPage(callback) {
+async function openIndexPage() {
 
     const htmlPath = path.join(folderPath, 'index.html')
 
     const server = http.createServer()
+
     server.listen(9001, () => {
         console.log('请访问http://127.0.0.1:9001，查看效果')
     })
-
-    server.on('request', function (request, response) {
+    server.on('request', async (request, response) => {
         var requestPath = url.parse(request.url, true)
         if (requestPath.pathname == '/') {
             requestPath.pathname += 'index.html'
@@ -96,25 +76,24 @@ function openIndexPage(callback) {
         
         var staticFilePath = path.join(folderPath, requestPath.pathname)
         
-        fs.readFile(staticFilePath, 'binary', (error, data) => {
-            if (error) {
-                console.error(error)
-            } else {
-                response.writeHead(200, { 'Content-Type': 'text/html' })
-                response.write(data, 'binary')
-                response.end()
-            }
-        })
+        const data = await readFile(staticFilePath, 'binary')
+
+        response.writeHead(200, { 'Content-Type': 'text/html' })
+        response.write(data, 'binary')
+        response.end()
     })
 
     // 打开默认浏览器
     open('http://127.0.0.1:9001')
 }
 
-createPublicFolder(() => {
-    createHTMLFile(() => {
-        createCSSFile(() => {
-            openIndexPage()
-        })
-    })
-})
+(async () => {
+    try {
+        await createPublicFolder()
+        await createHTMLFile()
+        await createCSSFile()
+        await openIndexPage()
+    } catch (error) {
+        console.error('错误信息：' + error)
+    }
+})()
