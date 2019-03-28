@@ -2,25 +2,24 @@
   <div>
     <h1>{{ message }}</h1>
     <img src="./assets/logo.png">
+    <div>
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
-import data from './data.js'
-
 export default {
   data() {
     return {
-      message: data.data()
-    }
+      message: 'Hello, Vue-Template.'
+    };
   }
-}
+};
 </script>
 
 <style scoped>
-
 h1 {
   color: red;
 }
-
 </style>
