@@ -1,11 +1,6 @@
-FROM node:8
-
-WORKDIR /koa-demo
-
-RUN npm install
-
-COPY . /koa-demo
-
-CMD npm run start
-
+FROM node:8.4
+COPY . /app
+WORKDIR /app
+RUN npm install --registry=https://registry.npm.taobao.org
 EXPOSE 8082
+CMD node app.js

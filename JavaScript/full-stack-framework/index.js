@@ -4,6 +4,7 @@ const history = require('koa2-history-api-fallback')
 const koaWebpack = require('koa-webpack')
 const webpackConfig = require('./config/webpack.dev')
 const koaStatic = require('koa-static')
+const logger = require('koa-logger')
 
 const app = new Koa()
 
@@ -13,6 +14,8 @@ runServer()
  * 启动服务
  */
 async function runServer() {
+    
+    app.use(logger())
     // 引入路由中间件
     app.use(routers.routes())
     app.use(routers.allowedMethods())
@@ -44,5 +47,6 @@ async function runServer() {
         })
         app.use(middleware)
     }
+
     app.listen(8081)
 }
