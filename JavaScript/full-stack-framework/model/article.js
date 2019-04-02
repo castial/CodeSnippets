@@ -12,6 +12,12 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: '',
             comment: '文章内容'
         }
+        // migrate_content: {
+        //     type: DataTypes.TEXT,
+        //     allowNull: true,
+        //     defaultValue: '',
+        //     comment: '迁移测试字段'
+        // }
     })
     
     return Article

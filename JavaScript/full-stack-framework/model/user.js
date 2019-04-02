@@ -31,6 +31,10 @@ module.exports = (sequelize, DataTypes) => {
             comment: '用户住址'
         }
     })
-    
+
+    User.associate = function (models) {
+        models.User.hasMany(models.Article);
+    }
+
     return User
 }
