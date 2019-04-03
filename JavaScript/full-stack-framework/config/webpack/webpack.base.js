@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        app: [path.join(__dirname, '../view/main.js')]
+        app: [path.join(__dirname, '../../view/main.js')]
     },
     output: {
         filename: '[name].[hash:8].js',
-        path: path.join(__dirname, '../vue-dist'),
+        path: path.join(__dirname, '../../vue-dist'),
         publicPath: '/'
     },
     resolve: {
@@ -46,8 +46,8 @@ module.exports = {
         new VueLoaderPlugin(),
 
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, '../view/index.html'),
-            favicon: path.join(__dirname, '../public/favicon.ico')
+            template: path.join(__dirname, '../../view/index.html'),
+            favicon: path.join(__dirname, '../../public/favicon.ico')
         })
     ],
     optimization: {

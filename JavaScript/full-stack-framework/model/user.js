@@ -30,11 +30,13 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: '',
             comment: '用户住址'
         }
+    }, {
+        hooks: {
+            afterSync: async (modle) => {
+                console.log('=======User.afterSync=========')
+            }
+        }
     })
-
-    User.associate = function (models) {
-        models.User.hasMany(models.Article);
-    }
 
     return User
 }
