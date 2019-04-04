@@ -1,9 +1,8 @@
+const model = require('../model/index')
+
 class User {
     async getUserInfo(ctx) {
-        const userInfo = {
-            name: 'Harlan',
-            address: 'ShenZhen'
-        }
+        const userInfo = await model.User.findAll()
         ctx.body = userInfo
     }
 }

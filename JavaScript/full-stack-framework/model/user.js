@@ -32,8 +32,16 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {
         hooks: {
-            afterSync: async (modle) => {
-                console.log('=======User.afterSync=========')
+            afterSync: async () => {
+                const data = {
+                    username: 'admin',
+                    email: 'admin@iafine.com',
+                    password: '123456',  //密码需要加密存储，后面再做
+                    address: 'ShenZhen'
+                }
+                await User.create(data, {
+                    ignoreDuplicates: false
+                })
             }
         }
     })
