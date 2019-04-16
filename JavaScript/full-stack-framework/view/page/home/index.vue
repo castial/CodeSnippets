@@ -9,7 +9,7 @@
 export default {
     data() {
         return {
-            message: 'This is home page.'
+            message: 'This is home page1111122222.'
         }
     }
 }
