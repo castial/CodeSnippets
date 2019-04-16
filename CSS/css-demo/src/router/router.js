@@ -17,6 +17,11 @@ export default new Router({
       path: '/background-border',
       name: 'background-border',
       component: BackgroundBorder
+    },
+    {
+      path: '/hello',
+      name: 'hello',
+      component: BackgroundBorder
     }
   ]
 })
