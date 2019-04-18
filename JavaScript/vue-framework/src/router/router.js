@@ -8,8 +8,8 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: '/hello',
+      name: 'hello',
       component: Hello
     }
   ]
