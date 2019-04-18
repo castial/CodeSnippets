@@ -19,6 +19,7 @@ module.exports = merge(base, {
         host: 'localhost',
         hot: true,
         inline: true,
-        open: true
+        open: true,
+        historyApiFallback: true    // 不加这个，直接加载单独的url会默认去找静态资源
     },
 })

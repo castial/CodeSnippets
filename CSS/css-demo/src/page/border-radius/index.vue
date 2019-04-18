@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="content">
-      <h4>可以看到一个半透明的边框</h4>
+      容器外部有一道边框，并且有圆角
     </div>
   </div>
 </template>
@@ -10,7 +10,8 @@
 .main {
   height: 100%;
   width: 100%;
-  background: green;
+  background: linear-gradient(#fb3 50%, #58a 50%);
+  background-size: 100% 30px;
   position: relative;
 }
 
@@ -23,8 +24,11 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  border: 10px solid hsla(0, 0%, 100%, 0.5);
-  background: white;
-  background-clip: padding-box;
+  background: tan;
+  outline: .6em solid #655;
+  box-shadow: 0 0 0 .4em #655;
+  padding: 1em;
+  border-radius: .8em;
 }
+
 </style>

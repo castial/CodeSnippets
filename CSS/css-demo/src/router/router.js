@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../page/home'
-import BackgroundBorder from '../page/background-border'
+import NotFound from '../page/404'
+import TranslucentBorder from '../page/translucent-border'
+import MultipleBorder from '../page/multiple-border'
+import BorderRadius from '../page/border-radius'
 
 Vue.use(Router)
 
@@ -19,14 +22,24 @@ export default new Router({
       component: Home
     },
     {
-      path: '/background-border',
-      name: 'background-border',
-      component: BackgroundBorder
+      path: '/translucent-border',
+      name: 'translucent-border',
+      component: TranslucentBorder
     },
     {
-      path: '/hello',
-      name: 'hello',
-      component: BackgroundBorder
+      path: '/multiple-border',
+      name: 'multiple-border',
+      component: MultipleBorder
+    },
+    {
+      path: '/border-radius',
+      name: 'border-radius',
+      component: BorderRadius
+    },
+    {
+      path: '*',
+      name: '404',
+      component: NotFound
     }
   ]
 })
