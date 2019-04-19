@@ -5,6 +5,10 @@ import NotFound from '../page/404'
 import TranslucentBorder from '../page/translucent-border'
 import MultipleBorder from '../page/multiple-border'
 import BorderRadius from '../page/border-radius'
+import Float from '../page/float'
+import PositionRelative from '../page/position-relative'
+import PositionAbsolute from '../page/position-absolute'
+import PositionFlexbox from '../page/position-flexbox'
 
 Vue.use(Router)
 
@@ -35,6 +39,26 @@ export default new Router({
       path: '/border-radius',
       name: 'border-radius',
       component: BorderRadius
+    },
+    {
+      path: '/float',
+      name: 'float',
+      component: Float
+    },
+    {
+      path: '/relative',
+      name: 'relative',
+      component: PositionRelative
+    },
+    {
+      path: '/absolute',
+      name: 'absolute',
+      component: PositionAbsolute
+    },
+    {
+      path: '/flexbox',
+      name: 'flexbox',
+      component: PositionFlexbox
     },
     {
       path: '*',
