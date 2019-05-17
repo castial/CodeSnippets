@@ -25,14 +25,6 @@ class Point {
     setPreY(y) {
         this.preY = y
     }
-
-    isEqual(point) {
-        if (this.x === point.x && this.y === point.y) {
-            return true
-        } else {
-            return false
-        }
-    }
 }
 
 const mazeArray = [
@@ -57,22 +49,22 @@ const visitedArray = [
 ]
 
 const pointArray = []    // 保存访问的路径
-const queue = []
+
 /**
- * 广度优先遍历(其实会得到两条路径，起始点方向不同，获取到的路径不同)
- * 这个起始方向是右边 
+ * 广度优先遍历(只会获取到一条路径，即最短路径)
+ * 起始方向随意
  */
-function mazeDFSPath() {
+function mazeBFSPath() {
+    const queue = []    // 模拟队列，用于遍历节点
 
     visitedArray[startPoint.x][startPoint.y] = 1  // 标记开始节点为已访问
-    // pointArray.push(startPoint)
 
     queue.push(startPoint)
     while (queue.length > 0) {
 
-        const local = queue.shift()
+        const last = queue.shift() // 取出最后一个元素，即队列头部 
 
-        pointArray.push(local)
+        pointArray.push(last)
 
         const lastPoint = pointArray[pointArray.length - 1]
 
@@ -82,20 +74,20 @@ function mazeDFSPath() {
         const leftPoint = new Point(lastPoint.x, lastPoint.y - 1)
         const rightPoint = new Point(lastPoint.x, lastPoint.y + 1)
 
-        console.log(`访问右方向节点{x : ${rightPoint.x}, ${rightPoint.y}}`)
-        if (validatePoint(rightPoint)) {
-            visitedArray[rightPoint.x][rightPoint.y] = 1
-            queue.push(rightPoint)
-            rightPoint.setPreX(local.x)
-            rightPoint.setPreY(local.y)
-        }
-
         console.log(`访问下方向节点{x : ${bottomPoint.x}, ${bottomPoint.y}}`)
         if (validatePoint(bottomPoint)) {
             visitedArray[bottomPoint.x][bottomPoint.y] = 1
             queue.push(bottomPoint)
-            bottomPoint.setPreX(local.x)
-            bottomPoint.setPreY(local.y)
+            bottomPoint.setPreX(last.x)
+            bottomPoint.setPreY(last.y)
+        }
+
+        console.log(`访问右方向节点{x : ${rightPoint.x}, ${rightPoint.y}}`)
+        if (validatePoint(rightPoint)) {
+            visitedArray[rightPoint.x][rightPoint.y] = 1
+            queue.push(rightPoint)
+            rightPoint.setPreX(last.x)
+            rightPoint.setPreY(last.y)
         }
 
         // 如果下方向走不通，尝试左方向，逻辑同上。
@@ -103,8 +95,8 @@ function mazeDFSPath() {
         if (validatePoint(leftPoint)) {
             visitedArray[leftPoint.x][leftPoint.y] = 1
             queue.push(leftPoint)
-            leftPoint.setPreX(local.x)
-            leftPoint.setPreY(local.y)
+            leftPoint.setPreX(last.x)
+            leftPoint.setPreY(last.y)
         }
 
         // 如果左方向走不通，尝试上方向，逻辑同上。
@@ -112,12 +104,39 @@ function mazeDFSPath() {
         if (validatePoint(topPoint)) {
             visitedArray[topPoint.x][topPoint.y] = 1
             queue.push(topPoint)
-            topPoint.setPreX(local.x)
-            topPoint.setPreY(local.y)
+            topPoint.setPreX(last.x)
+            topPoint.setPreY(last.y)
         }
     }
-    console.log('========DFS路径结果========')
-    console.log(pointArray)
+
+    // 回溯查找路径
+    const stack = []
+    let preX = pointArray[pointArray.length - 1].preX
+    let preY = pointArray[pointArray.length - 1].preY
+
+    stack.push(pointArray.length - 1)   // 记录目的地的位置
+    while(true) {
+        if (preX === 0 && preY === 0) {
+            // 找到起始地点就跳出
+            break
+        }
+        for (let i = 0; i < pointArray.length; i++) {            
+            const point = pointArray[i];
+            if (point.x === preX && point.y === preY) {
+                preX = point.preX
+                preY = point.preY
+                stack.push(i)
+                break
+            }
+        }
+    }
+    
+    // 最后加上开始节点
+    stack.push(0)
+    console.log('========BFS路径结果========')
+    stack.reverse().forEach(index => {
+        console.log(pointArray[index])
+    })
 }
 
 /**
@@ -137,4 +156,4 @@ function validatePoint(point) {
     return false
 }
 
-mazeDFSPath()
+mazeBFSPath()
