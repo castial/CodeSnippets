@@ -1,33 +1,14 @@
-if (false) {
-    var value =  1
-}
-console.log(value)
+// var a = 2;
+// (function foo(){ // <-- 添加这一行 
+//     var a = 3;
+//     console.log( a ); // 3 
+// })(); // <-- 以及这一行 
+// console.log( a ); // 2
 
-// var funcs = []
-// for (var i = 0; i < 3; i++) {
-//     funcs[i] = function() {
-//         console.log(i)
-//     }
-// }
-
-// funcs[1]()
-
-var funcs = []
-for (const i = 0; i < 3; i++) {
-    funcs[i] = function() {
-        console.log(i)
-    }
-}
-
-funcs[0]()
-
-// for (let i = 0; i < 3; i++) {
-//     let i = 'abc'
+// for (var i = 0; i < 10; i++) {
 //     console.log(i)
 // }
+// console.log('final i: ', i)
 
-
-// for (let j = 0; j < 3; j++) {
-//     var j = 'abc'
-//     console.log(j)
-// }
+console.log(a);
+var a = 2;
