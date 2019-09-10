@@ -199,18 +199,95 @@
 // console.log(Object.getOwnPropertyDescriptor(myObject, "a"));    
 // // { value: 2, writable: true, enumerable: true, configurable: true }
 
-var myObject = {};
-Object.defineProperty(myObject, "a", {
-    value: 2,
-    enumerable: false
-});
+// var myObject = {};
+// Object.defineProperty(myObject, "a", {
+//     value: 2,
+//     enumerable: false
+// });
 
-Object.defineProperty(myObject, "b", {
-    value: 2,
-    enumerable: true
-});
+// Object.defineProperty(myObject, "b", {
+//     value: 2,
+//     enumerable: true
+// });
 
-for ( const el in myObject) {
-    console.log(el);
-}
-// b
+// for ( const el in myObject) {
+//     console.log(el);
+// }
+// // b
+
+// class Vehicle {
+//     engines = 1
+//     ignition() {
+//         output("Turning on my engine.");
+//     }
+//     drive() {
+//         ignition();
+//         output("Steering and moving forward!")
+//     }
+// }
+// class Car inherits Vehicle {
+//     wheels = 4
+//     drive() {
+//         inherited: drive()
+//         output("Rolling on all ", wheels, " wheels!")
+//     }
+// }
+// class SpeedBoat inherits Vehicle {
+//     engines = 2
+//     ignition() {
+//         output("Turning on my ", engines, " engines.")
+//     }
+//     pilot() {
+//         inherited: drive()
+//         output("Speeding through the water with ease!")
+//     }
+// }
+
+// // 非常简单的 mixin(..) 例子 :
+// function mixin(sourceObj, targetObj) {
+//     for (var key in sourceObj) {
+//         // 只会在不存在的情况下复制 
+//         if (!(key in targetObj)) {
+//             targetObj[key] = sourceObj[key];
+//         }
+//     }
+//     return targetObj;
+// }
+
+// var Vehicle = {
+//     engines: 1,
+//     ignition: function () {
+//         console.log("Turning on my engine.");
+//     },
+//     drive: function () {
+//         this.ignition();
+//         console.log("Steering and moving forward!");
+//     }
+// };
+// var Car = mixin(Vehicle, {
+//     wheels: 4,
+//     drive: function () {
+//         Vehicle.drive.call(this);
+//         console.log("Rolling on all " + this.wheels + " wheels!");
+//     }
+// });
+
+
+var Something = {
+    cool: function () {
+        this.greeting = "Hello World";
+        this.count = this.count ? this.count + 1 : 1;
+    }
+};
+
+Something.cool();
+Something.greeting; // "Hello World"
+Something.count; // 1
+var Another = {
+    cool: function () {
+        // 隐式把 Something 混入 Another
+        Something.cool.call(this);
+    }
+};
+Another.cool();
+Another.greeting; // "Hello World" Another.count; // 1(count 不是共享状态)
