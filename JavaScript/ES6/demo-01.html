@@ -19,6 +19,7 @@
 </head>
 <body>
     <div id="container"></div>
+    <button id="button"></button>
     <script>
         let count = 1;
         let container = document.getElementById('container');
@@ -26,15 +27,20 @@
         function getUserAction(e) {
             console.log(e);
             container.innerHTML = count++;
+
+            return 'hello world';
         }
-        container.onmousemove = debounce(getUserAction, 1000);
 
+        const userAction = debounce(getUserAction, 1000, true);
+        container.onmousemove = userAction;
 
-        // 防抖函数
+        document.getElementById('button').addEventListener('click', () => {
+            userAction.cancel()
+        })
+
         function debounce(func, wait, immediate) {
             let timeout;
-            let result;     // 只在imediate时生效
-
+            let result;
 
             const debounced = () => {
                 const context = this;
@@ -44,11 +50,12 @@
                     clearTimeout(timeout);
                 }
                 if (immediate) {
-                    let callNow = !timeout;
+                    // 如果已经执行过，那么就不再执行
+                    const isCall = !timeout;
                     timeout = setTimeout(() => {
                         timeout = null;
                     }, wait);
-                    if (callNow) {
+                    if (isCall) {
                         result = func.apply(context, args);
                     }
                 } else {
@@ -63,6 +70,7 @@
                 clearTimeout(timeout);
                 timeout = null;
             }
+
             return debounced;
         }
     </script>
