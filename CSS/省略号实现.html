@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>省略号实现</title>
+    <style>
+        div {
+            width: 50%;
+            background: gray;
+        }
+
+        .single-line {
+            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .multi-line {
+            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>单行省略</p>
+        <p class="single-line">外媒报道称，今年iPhone 11系列全球的首批订单量预计在800万台左右，相比去年2018款iPhone至少减少了10%。其中，iPhone
+            11占订单总数的60%，iPhone 11 Pro占10%，iPhone 11 Pro Max占30%。</p>
+    </div>
+    <div>
+        <p>单行省略</p>
+        <p class="multi-line">外媒报道称，今年iPhone 11系列全球的首批订单量预计在800万台左右，相比去年2018款iPhone至少减少了10%。其中，iPhone
+            11占订单总数的60%，iPhone 11 Pro占10%，iPhone 11 Pro Max占30%。外媒报道称，今年iPhone 11系列全球的首批订单量预计在800万台左右，相比去年2018款iPhone至少减少了10%。其中，iPhone
+            11占订单总数的60%，iPhone 11 Pro占10%，iPhone 11 Pro Max占30%。</p>
+    </div>
+</body>
+
+</html>
