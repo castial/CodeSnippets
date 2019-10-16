@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { TodoHeader, TodoInput, TodoList, withFooter } from './components';
 
-@withFooter
+// @withFooter
 class App extends Component {
 
     constructor() {
