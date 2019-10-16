@@ -1,4 +1,4 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('./node_modules/vue-loader/lib/plugin')
 
 module.exports = {
     entry: './main.js',

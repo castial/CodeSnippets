@@ -1,0 +1,21 @@
+{
+  "name": "test-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.4.13",
+    "line-by-line": "^0.1.6",
+    "mammoth": "^1.4.8",
+    "node-stream-zip": "^1.8.0",
+    "pdf-parse": "^1.1.1",
+    "pdf2json": "^1.1.8",
+    "textract": "^2.5.0",
+    "xml2js": "^0.4.19"
+  }
+}
