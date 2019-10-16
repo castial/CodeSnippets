@@ -8,6 +8,18 @@ export default class TodoItem extends Component {
         this.handleTodoCompleteChanged = this.handleTodoCompleteChanged.bind(this);
     }
 
+    componentDidMount() {
+        console.log('componentDidMount');
+
+        fetch('https://api.github.com/users/iafine').then(res => res.json()).then(result => {
+            console.log(result);
+        });
+    }
+
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+    }
+
     handleTodoCompleteChanged(e) {
         this.props.onTodoCompleteChanged({
             id: this.props.todo.id,

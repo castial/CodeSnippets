@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { TodoHeader, TodoInput, TodoList } from './components';
+import { TodoHeader, TodoInput, TodoList, withFooter } from './components';
 
-export default class App extends Component {
+@withFooter
+class App extends Component {
 
     constructor() {
         super()
@@ -57,3 +58,5 @@ export default class App extends Component {
         )
     }
 }
+
+export default App;
